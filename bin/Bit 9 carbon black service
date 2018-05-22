@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# check for process
+PROCESS=$( pgrep b9notifier )
+
+#see if process is running
+if [[ -z "$PROCESS" ]]; then
+        RESULT="Not Running"
+    else
+        RESULT="Running"
+fi
+
+#report results
+echo "<result>${RESULT}</result>"
