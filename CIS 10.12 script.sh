@@ -147,7 +147,7 @@ echo $(date) "2.4.4 Disable Print Sharing completed." >> /var/log/GSAlog
 #2.4.8 AFP and ARD controls.
 launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
 launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
-echo $(date) "2.4.8 Disable AFP File Sharing completed." >> /var/log/GSAlog
+echo $(date) "2.4.8 Disable AFP/SMB File Sharing completed." >> /var/log/GSAlog
 
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate -configure -access -off
 
@@ -263,7 +263,7 @@ echo $(date) "Enable SIP on by default complete." >> /var/log/GSAlog
 #6.1.3 Disable Guest Account done via profile
 
 #6.1.5 remove guest home folder
- rm -R /Users/Guest
+rm -R /Users/Guest
 echo $(date) "Removed guest home folder" >> /var/log/GSAlog
 
 #6.3 Disable safari safe file opening
