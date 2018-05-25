@@ -7,7 +7,7 @@
 sw_vers=$(sw_vers -productVersion)
 csrstat=$""
 # halt run on anything but 10.11 or higher
-if [[ $sw_vers < 10.12.* ]]; then 
+if [[ $sw_vers > 10.12.* ]]; then 
 osascript -e 'tell app "System Events" to display alert "This script is for OS versions 10.12.x only!"'; exit 1
 fi
 
