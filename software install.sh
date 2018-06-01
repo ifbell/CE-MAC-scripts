@@ -2,7 +2,7 @@
 #First attempt at a single installer script
 #IFB 04/17/2017
 
-filearray=("SSH MOTD banner" "Policy Banner installer" "NessusAgent installer"
+declare -a filearray=("SSH MOTD banner" "Policy Banner installer" "NessusAgent installer"
 "VMware Horizon Client installer" "Google Chrome" "GSA Help Folder" "FireEye
 installer" "bigfix installer" "Cisco AnyConnect" "ForeScout Agent" "Citrix Receiver" "Desktopimage"
  "McAfee install" "CiscoJabberMac" "Java")
@@ -26,7 +26,7 @@ arraycount=${#filearray[@]}
 echo $arraycount
 
 #start installs of necessary software.
-PolicyArray=( 1,2,,3,4,5,6 )
+declare -a PolicyArray=( 1,2,,3,4,5,6 )
 Policycount=${#filearray[@]}
  echo $Policycount
  arraycount=$" "
