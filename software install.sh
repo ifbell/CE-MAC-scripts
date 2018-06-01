@@ -26,8 +26,15 @@ arraycount=${#filearray[@]}
 echo $arraycount
 
 #start installs of necessary software.
+PolicyArray=( 1,2,,3,4,5,6 )
+Policycount=${#filearray[@]}
+ echo $Policycount
+ arraycount=$" "
+ for element in ${filearray[@]}
+do
+   JAMF policy ID $PolicyArray
+done
 
-JAMF policy ID# 
 #check if the policy is still running 
 
 #if finished go to the next policy
