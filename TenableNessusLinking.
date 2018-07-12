@@ -1,0 +1,30 @@
+#!/bin/bash
+
+connstate="Connected"
+#check wired state
+wiredwireless () {
+pingconnect=$(ping -c 3 E07R7M-CSPINT.ent.ds.gsa.gov | grep packets |cut -f 4 -d' ') #check if we are connected to internal network
+if  [ "$pingconnect" > 0 ];then 
+nessuslink
+else  
+echo $(date) "Not on a network cannot continue"; exit 0
+fi
+}
+#link to NessusAgent
+nessuslink () {
+/Library/NessusAgent/run/sbin/nessuscli agent link --key=cc678c46e1595a62b69c357d501d86a105c653074936a1334b4eeb8a7f61e32f --groups="MacOSX Group" --host=nemaexwo.gsa.gov --port=50505
+sleep 10
+nessusStatus=$(/Library/NessusAgent/run/sbin/nessuscli agent status|grep Linked|awk '{print $3}');
+if [ $nessusStatus = Linked ]; then
+echo $(date) Nessus is now Linked >> /var/log/GSAlog; exit 0
+else 
+echo $(date) Nessus is not Linked >> /var/log/GSAlog; exit 0
+fi
+}
+#check VPN status
+vpnstatus=$(/opt/cisco/anyconnect/bin/vpn state |grep -m 1 'state'|awk '{print $4}')
+if [ "$vpnstatus" = "$connstate" ];then
+nessuslink
+else 
+wiredwireless
+fi
