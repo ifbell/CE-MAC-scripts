@@ -1,5 +1,6 @@
 #!/bin/sh
 ## postinstall
+##created by IFBELL 19/07/18
 
 #uninstall McAfee from the machine
 
