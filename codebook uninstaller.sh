@@ -7,16 +7,17 @@ CBinstall="blank"
 #get current user
 curruser=$(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')
 
-#quit Codebook
-osascript -e 'quit app "Codebook"'
-sleep 15
-
-#check for codebook installed
 CBinstall=$(/usr/sbin/pkgutil --pkgs | grep net.zetetic)
 
 if [[ $CBinstall != "net.zetetic.Strip.mac" ]]; then
 echo $(date) "We did not find codebook installed"; exit 0
 fi
+
+#quit Codebook
+osascript -e 'quit app "Codebook"'
+sleep 15
+
+#check for codebook installed
 
 #remove codebook from the Machine.
 rm $curruser/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.zetetic.strip.mac.sfl2 
