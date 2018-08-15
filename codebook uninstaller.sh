@@ -18,10 +18,10 @@ osascript -e 'quit app "Codebook"'
 sleep 15
 
 #remove codebook from the Machine.
-rm $curruser/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.zetetic.strip.mac.sfl2 
-rm -rf $curruser/Library/Application\ Scripts/net.zetetic.Strip.mac 
-rm -fdr $currcuser/Library/Group\ Containers/PD7G6HRMGV.net.zetetic.STRIP 
-rm -rf $curruser/Library/Containers/net.zetetic.Strip.mac
+rm /Users/$curruser/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.zetetic.strip.mac.sfl2
+rm -rf /Users/$curruser/Library/Application\ Scripts/net.zetetic.Strip.mac 
+rm -fdr /Users/$currcuser/Library/Group\ Containers/PD7G6HRMGV.net.zetetic.STRIP 
+rm -rf /Users/$curruser/Library/Containers/net.zetetic.Strip.mac
 rm -fdr /Applications/Codebook.app
 /usr/sbin/pkgutil --forget net.zetetic.Strip.mac > /dev/null 2>&1 
 
