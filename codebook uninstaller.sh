@@ -1,6 +1,6 @@
 #!/bin/bash
 ##############################
-#codebook unistaller
+#codebook uninstaller
 #created by IFBELL 14/08/18
 ##############################
 CBinstall="blank"
