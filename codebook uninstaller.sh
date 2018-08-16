@@ -3,11 +3,12 @@
 #codebook uninstaller
 #created by IFBELL 14/08/18
 ##############################
+
 CBinstall="blank"
 #get current user
 curruser=$(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')
 
-# Is Codebook installed
+#check if Codebook is installed
 CBinstall=$(/usr/sbin/pkgutil --pkgs | grep net.zetetic)
 if [[ $CBinstall != "net.zetetic.Strip.mac" ]]; then
 echo $(date) "We did not find codebook installed"; exit 0
@@ -18,11 +19,11 @@ osascript -e 'quit app "Codebook"'
 sleep 15
 
 #remove codebook from the Machine.
-rm /Users/$curruser/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.zetetic.strip.mac.sfl2
-rm -rf /Users/$curruser/Library/Application\ Scripts/net.zetetic.Strip.mac 
-rm -fdr /Users/$currcuser/Library/Group\ Containers/PD7G6HRMGV.net.zetetic.STRIP 
-rm -rf /Users/$curruser/Library/Containers/net.zetetic.Strip.mac
-rm -fdr /Applications/Codebook.app
+rm /Users/$curruser/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.zetetic.strip.mac.sfl2 &> /dev/null
+rm -rf /Users/$curruser/Library/Application\ Scripts/net.zetetic.Strip.mac &> /dev/null
+rm -fdr /Users/$curruser/Library/Group\ Containers/PD7G6HRMGV.net.zetetic.STRIP &> /dev/null
+rm -rf /Users/$curruser/Library/Containers/net.zetetic.Strip.mac &> /dev/null
+rm -fdr /Applications/Codebook.app &> /dev/null
 /usr/sbin/pkgutil --forget net.zetetic.Strip.mac > /dev/null 2>&1 
 
 #complete the uninstall
