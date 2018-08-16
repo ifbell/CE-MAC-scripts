@@ -24,7 +24,7 @@ rm -rf /Users/$curruser/Library/Application\ Scripts/net.zetetic.Strip.mac &> /d
 rm -fdr /Users/$curruser/Library/Group\ Containers/PD7G6HRMGV.net.zetetic.STRIP &> /dev/null
 rm -rf /Users/$curruser/Library/Containers/net.zetetic.Strip.mac &> /dev/null
 rm -fdr /Applications/Codebook.app &> /dev/null
-/usr/sbin/pkgutil --forget net.zetetic.Strip.mac > /dev/null 2>&1 
+/usr/sbin/pkgutil --forget net.zetetic.Strip.mac &> /dev/null 
 
 #complete the uninstall
 if [ -d /Applications/Codebook.app ];then
