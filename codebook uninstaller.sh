@@ -27,10 +27,8 @@ rm -fdr /Applications/Codebook.app &> /dev/null
 /usr/sbin/pkgutil --forget net.zetetic.Strip.mac &> /dev/null 
 
 #complete the uninstall
-if [ -d /Applications/Codebook.app ];then
-echo $(date) "We have found Codebook files!" >> /var/log/GSAlog ; exit 1
-fi
 echo $(date) "Uninstalled Codebook"  >> /var/log/GSAlog
+exit 0
 
 
 
